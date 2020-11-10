@@ -15,7 +15,10 @@
       <li class="nav-item ${activePage eq 'Cars' ? 'active' : ' '}">
           <a class="nav-link" href="${pageContext.request.contextPath}/Cars">Cars</a>
       </li>
-      <li class="nav-item ${pageContext.request.requestURI eq '/ParkingLoy/about.jsp' ? 'active' : ''}">
+      <li class="nav-item ${pageContext.request.requestURI eq '/ParkingLot/users.jsp' ? 'active' : ''}">
+        <a class="nav-link" href="${pageContext.request.contextPath}/users.jsp">Users</a>
+      </li>
+      <li class="nav-item ${pageContext.request.requestURI eq '/ParkingLot/about.jsp' ? 'active' : ''}">
         <a class="nav-link" href="${pageContext.request.contextPath}/about.jsp">About</a>
       </li>
       <li class="nav-item">
