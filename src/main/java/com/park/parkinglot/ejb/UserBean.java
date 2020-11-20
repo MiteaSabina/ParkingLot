@@ -9,7 +9,6 @@ import com.park.parkinglot.common.UserDetails;
 import com.park.parkinglot.entity.User;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
