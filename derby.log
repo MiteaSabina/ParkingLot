@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\sab\inginerie software\projects\ParkingLot
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Nov 24 14:08:07 EET 2020: Shutting down Derby engine
+----------------------------------------------------------------
+Tue Nov 24 14:08:07 EET 2020:
+Shutting down instance a816c00e-0175-f9c5-a19a-000014116e44 on database directory D:\sab\inginerie software\projects\ParkingLot\ParkingLot with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
