@@ -6,41 +6,33 @@
 package com.park.parkinglot.entity;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author neagoe
  */
-
 @Entity
-@Table(name = "CARS")
-public class Car implements Serializable {
+public class Photo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    private String filename;
+    private String fileType;
+    private byte[] fileContent;
     
-    private String licensePlate;
-    
-    private String parkingSpot;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY")
-    private User user;
-    
-    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Photo photo;
+    @OneToOne
+    @JoinColumn(name = "CAR_KEY")
+    private Car car;
+
 
     public Integer getId() {
         return id;
@@ -50,36 +42,37 @@ public class Car implements Serializable {
         this.id = id;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
+    
+    public String getFilename() {
+        return filename;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
-    public String getParkingSpot() {
-        return parkingSpot;
+    public String getFileType() {
+        return fileType;
     }
 
-    public void setParkingSpot(String parkingSpot) {
-        this.parkingSpot = parkingSpot;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
-    public User getUser() {
-        return user;
+    public byte[] getFileContent() {
+        return fileContent;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setFileContent(byte[] fileContent) {
+        this.fileContent = fileContent;
     }
     
-    public Photo getPhoto() {
-        return photo;
+    public Car getCar() {
+        return car;
     }
 
-    public void setPhoto(Photo photo) {
-        this.photo = photo;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     @Override
@@ -92,10 +85,10 @@ public class Car implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Car)) {
+        if (!(object instanceof Photo)) {
             return false;
         }
-        Car other = (Car) object;
+        Photo other = (Photo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -104,7 +97,7 @@ public class Car implements Serializable {
 
     @Override
     public String toString() {
-        return "com.park.parkinglot.entity.Car[ id=" + id + " ]";
+        return "com.park.parkinglot.entity.Photo[ id=" + id + " ]";
     }
     
 }
