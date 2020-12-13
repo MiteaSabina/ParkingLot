@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.park.parkinglot.servlet.car;
+package com.park.parkinglot.servlet;
 
+import com.park.parkinglot.common.PhotoDetails;
+import com.park.parkinglot.ejb.CarBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Photos", urlPatterns = {"/Cars/Photos"})
 public class Photos extends HttpServlet {
+    
+    @Inject
+    CarBean carBean;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,11 +66,11 @@ public class Photos extends HttpServlet {
             throws ServletException, IOException {
         Integer carId = Integer.parseInt(request.getParameter("id"));
         PhotoDetails photo = carBean.findPhotoByCarId(carId);
-        if(photo != null){
+        if(photo != null) {
             response.setContentType(photo.getFileType());
-            response.setContentLength(photo.getFileContent().lenght);
+            response.setContentLength(photo.getFileContent().length);
             response.getOutputStream().write(photo.getFileContent());
-        }else{
+        } else{
             response.sendError(HttpServletResponse.SC_NOT_FOUND); //Error 404
         }
     }

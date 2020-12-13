@@ -114,7 +114,8 @@ public class CarBean {
     }
     
     public PhotoDetails findPhotoByCarId(Integer carId){
-        TypedQuery<Photo> typedQuery = em.createQuery("SELECT p FROM Photo p where p.car.id=:id",Photo.class).setParameter("id", carId);
+        TypedQuery<Photo> typedQuery = em.createQuery("SELECT p FROM Photo p where p.car.id=:id",Photo.class).
+                setParameter("id", carId);
         List<Photo> photos = typedQuery.getResultList();
         if(photos.isEmpty()){
             return null;

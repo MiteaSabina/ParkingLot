@@ -14,13 +14,13 @@
             <div class="col-md">
                 <input type="checkbox" name="user_ids" value="${user.id}" />
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 ${user.username}
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 ${user.email}
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-3">
                 ${user.position}
             </div>
         </div>
